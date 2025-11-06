@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHOST TOP UP: Free fire diamond top up bkash</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f39c12;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            background: #f39c12;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Notice Section */
+        .notice-section {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .notice-section h2 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Banner Carousel */
+        .banner-section {
+            position: relative;
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #f39c12;
+            transform: scale(1.2);
+        }
+
+        /* Product Categories */
+        .category-section {
+            margin: 40px 0;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #f39c12, #e67e22);
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-color: #f39c12;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Latest Orders */
+        .orders-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .orders-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .orders-subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .orders-list {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e9ecef;
+            transition: background 0.3s ease;
+        }
+
+        .order-item:hover {
+            background: #f8f9fa;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-user {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .order-product {
+            color: #6c757d;
+            text-align: center;
+            flex: 1;
+        }
+
+        .order-status {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #f39c12;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #f39c12;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #f39c12;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        .contact-info {
+            background: #f39c12;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .app-download {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .app-download img {
+            max-width: 200px;
+            border-radius: 10px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .carousel {
+                height: 200px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .order-item {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Special animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card, .order-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .product-card:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+
+        .product-card:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="images/notices/nenox_logo.png" alt="Nenox Shop Logo">
+                        <h1>GHOST TOP UP</h1>
+                    </div>
+                    <nav>
+                        <ul class="nav-menu">
+                            <li><a href="#topup">Topup</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#login">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Notice Section -->
+        <section class="notice-section">
+            <h2>নোটিশ:</h2>
+            <p>এখন টপ-আপ AI দিয়ে (২৪ ঘন্টা) মাত্র ২০ সেকেন্ডের ভিতরে অর্ডার দেওয়া হয়" যেকোনো প্রয়োজনে WhatsApp: 01628948415</p>
+            <p><strong>বিঃদ্রঃ</strong> মা-বাবা বা ফ্যামিলির কারো ফোন থেকে টাকা চুরি করে কেউ টপআপ করবেন না!</p>
+            <p><strong>নতুন নাম:</strong> GHOST TOP UP - আপনার গেমিংয়ের নতুন সঙ্গী!</p>
+        </section>
+
+        <!-- Banner Carousel -->
+        <section class="banner-section">
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="images/banners/banner1.jpg" alt="Banner 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banners/banner2.jpg" alt="Banner 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banners/banner3.png" alt="Banner 3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banners/banner4.png" alt="Banner 4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banners/banner5.jpg" alt="Banner 5">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banners/banner6.png" alt="Banner 6">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banners/banner7.png" alt="Banner 7">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banners/banner8.png" alt="Banner 8">
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <span class="carousel-dot active" data-slide="0"></span>
+                <span class="carousel-dot" data-slide="1"></span>
+                <span class="carousel-dot" data-slide="2"></span>
+                <span class="carousel-dot" data-slide="3"></span>
+                <span class="carousel-dot" data-slide="4"></span>
+                <span class="carousel-dot" data-slide="5"></span>
+                <span class="carousel-dot" data-slide="6"></span>
+                <span class="carousel-dot" data-slide="7"></span>
+            </div>
+        </section>
+
+        <!-- Special Offer Section -->
+        <section class="category-section">
+            <h2 class="category-title">Special Offer</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="images/products/friday_offer.jpg" alt="FRIDAY OFFER">
+                    <h3>FRIDAY OFFER</h3>
+                    <div class="price">Special Price</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Topup Section -->
+        <section class="category-section">
+            <h2 class="category-title">GAME TOPUP</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="images/products/uid_topup_bd.jpg" alt="UID Topup BD">
+                    <h3>UID Topup [BD]</h3>
+                    <div class="price">From ৳22</div>
+                </div>
+                <div class="product-card">
+                    <img src="images/products/weekly_monthly_combo.jpg" alt="Weekly Monthly Combo">
+                    <h3>Weekly Monthly Combo</h3>
+                    <div class="price">From ৳152</div>
+                </div>
+                <div class="product-card">
+                    <img src="images/products/level_up_packages.jpg" alt="Level Up Packages">
+                    <h3>Level Up Packages</h3>
+                    <div class="price">From ৳95</div>
+                </div>
+                <div class="product-card">
+                    <img src="images/products/weekly_lite_bd.jpg" alt="Weekly Lite BD">
+                    <h3>Weekly Lite [BD]</h3>
+                    <div class="price">From ৳152</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscription Section -->
+        <section class="category-section">
+            <h2 class="category-title">Subscription</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="images/products/netflix.jpg" alt="NETFLIX">
+                    <h3>NETFLIX</h3>
+                    <div class="price">Monthly</div>
+                </div>
+                <div class="product-card">
+                    <img src="images/products/youtube_premium.jpg" alt="YouTube Premium">
+                    <h3>YouTube Premium</h3>
+                    <div class="price">Monthly</div>
+                </div>
+                <div class="product-card">
+                    <img src="images/products/expressvpn_7day.jpg" alt="Express VPN 7 Day">
+                    <h3>Express VPN 7 Day</h3>
+                    <div class="price">7 Days</div>
+                </div>
+                <div class="product-card">
+                    <img src="images/products/expressvpn_30day.jpg" alt="Express VPN 30 days">
+                    <h3>Express VPN 30 days</h3>
+                    <div class="price">30 Days</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Orders Section -->
+        <section class="orders-section">
+            <h2 class="orders-title">Latest Orders</h2>
+            <p class="orders-subtitle">সর্বশেষ আপডেট করা হয়েছে 2 মিনিট আগে</p>
+            <div class="orders-list">
+                <div class="order-item">
+                    <span class="order-user">dk jerry</span>
+                    <span class="order-product">Level Up Pass [Lv.25] Indo - ৳95</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">MD MOHAIMEN ISLAM</span>
+                    <span class="order-product">25 Diamon - ৳22</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">Ridoy Islam</span>
+                    <span class="order-product">115 Diamond - ৳78</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">Minara</span>
+                    <span class="order-product">Monthly - ৳765</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">MD MOHAIMEN ISLAM</span>
+                    <span class="order-product">50 Diamond - ৳38</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">Md Abdullah mia</span>
+                    <span class="order-product">Weekly - ৳152</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">MD8 Bilal</span>
+                    <span class="order-product">Level Up Pass [Lv.15] Indo - ৳95</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">fahim Lisam</span>
+                    <span class="order-product">25 Diamon - ৳22</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">MD Sifat Islam</span>
+                    <span class="order-product">Weekly - ৳152</span>
+                    <span class="order-status">Completed</span>
+                </div>
+                <div class="order-item">
+                    <span class="order-user">fahim Lisam</span>
+                    <span class="order-product">240 Diamond - ৳158</span>
+                    <span class="order-status">Completed</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-info">
+            <h3>Contact Us</h3>
+            <p><i class="fab fa-whatsapp"></i> WhatsApp HelpLine: সকাল ৮টা থেকে রাত ১২টা</p>
+            <p><i class="fab fa-telegram"></i> Telegram HelpLine: সকাল ৮টা থেকে রাত ১২টা</p>
+            <p><i class="fab fa-facebook"></i> Facebook HelpLine: সকাল ৮টা থেকে রাত ১২টা</p>
+        </section>
+
+        <!-- App Download Section -->
+        <section class="app-download">
+            <h3>Download Our App</h3>
+            <img src="https://nenoxshop.com/_nuxt/app_link.zDBBfP7d.png" alt="Download App" onclick="window.open('https://play.google.com/store/apps/details?id=com.nenoxshop.nenoxshop', '_blank')">
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>About GHOST TOP UP</h3>
+                        <p>Free Fire Diamond TopUp Largest TopUp Site In Bangladesh</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/nenoxshopbd" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://youtube.com/@nenoxshop" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://whatsapp.com/channel/0029Vad9chiBVJl7ZMJ8XX2h" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a href="https://wa.me/+8801628948415" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul style="list-style: none;">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCR3ploy902vduDFoDBem-EQ">Tutorial</a></li>
+                            <li><a href="#topup">TopUp</a></li>
+                            <li><a href="#contactus">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <p>সাহায্য লাগবে ?</p>
+                        <p>যেকোন অর্ডার জনিত সমস্যায় মেসেঞ্জারে অর্ডারের স্ক্রিনশর্ট এবং পেমেন্টের ট্রানজেকশন আইডি লিখে মেসেজ দিন</p>
+                        <p>18 বছরের নিচে অভিভাবকের অনুমতি ছাড়া অর্ডার করা সম্পুর্নভাবে নিষিদ্ধ।</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Information</h3>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +8801628948415</p>
+                        <p><i class="fab fa-telegram"></i> Telegram Channel</p>
+                        <p><i class="fab fa-facebook"></i> Facebook Page</p>
+                        <p><i class="fab fa-youtube"></i> YouTube Channel</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>All Rights Reserved | Developed By <a href="https://wa.me/+8801721627441?text=HI%2C%20I%20need%20develop%20an%20website%20like%20GHOST%20TOP%20UP">Team Mahal</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Ensure n is within bounds
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+
+            // Add active class to current slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Dot click functionality
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.product-card, .order-item').forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Mobile menu toggle (if needed)
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('mobile-active');
+        }
+
+        // Add some interactivity to product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "siteInfo": {
+    "title": "GHOST TOP UP: Free fire diamond top up bkash",
+    "description": "Free Fire Diamond TopUp Largest TopUp Site In Bangladesh",
+    "language": "bn",
+    "currency": "BDT"
+  },
+  "contact": {
+    "whatsapp": "+8801628948415",
+    "telegram": "https://whatsapp.com/channel/0029Vad9chiBVJl7ZMJ8XX2h",
+    "facebook": "https://www.facebook.com/nenoxshopbd",
+    "youtube": "https://youtube.com/@nenoxshop",
+    "appStore": "https://play.google.com/store/apps/details?id=com.nenoxshop.nenoxshop"
+  },
+  "features": {
+    "carousel": {
+      "autoplayInterval": 5000,
+      "pauseOnHover": true,
+      "showDots": true
+    },
+    "responsive": {
+      "breakpoints": {
+        "mobile": 480,
+        "tablet": 768,
+        "desktop": 1200
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "duration": 600,
+      "stagger": 100
+    }
+  },
+  "colors": {
+    "primary": "#f39c12",
+    "secondary": "#e67e22",
+    "dark": "#2c3e50",
+    "success": "#27ae60",
+    "error": "#e74c3c"
+  }
+}
